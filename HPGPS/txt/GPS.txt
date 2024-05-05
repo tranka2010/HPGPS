@@ -1,0 +1,36 @@
+%%HP: T(3)A(R)F(.);
+\<< -78. SF 4800. BAUD CLEAR CLOSEIO 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \-> \<-DONE \<-S6 \<-CHOICE \<-CHKSUM \<-CKS \<-STAR \<-STRING \<-CBEFORE \<-CAFTER \<-ID \<-RAWSENTENCE \<-UTCA \<-LATA \<-HLAA \<-LONA \<-HLOA \<-QUAL \<-NSAT \<-HDOP \<-ALTI \<-ALTU \<-GEOI \<-GEOU \<-SMOD \<-DMOD \<-SA01 \<-SA02 \<-SA03 \<-SA04 \<-SA05 \<-SA06 \<-SA07 \<-SA08 \<-SA09 \<-SA10 \<-SA11 \<-SA12 \<-PDOP \<-HDPS \<-VDOP \<-TMSG \<-NMSG \<-SATV \<-SATN \<-ELDE \<-AZDE \<-SSNR \<-UTCC \<-STAT \<-LATC \<-HLAC \<-LONC \<-HLOC \<-SPED \<-COUR \<-DATC
+  \<<
+    DO "AVAILABLE GPS INFO" { { "Current Position" "GPGGA," } { "Current Tracking" "GPRMC," } { "Active Satellites" "GPGSA," } { "Satellites in View" "GPGSV," } { "Log GPS Output" "LOGGER" } { "Where and how far..." "HOWFAR" } { "Quit" "IQUIT," } } 1 CHOOSE 1 ==
+      IF
+      THEN '\<-CHOICE' STO
+      ELSE "XXXXX," '\<-CHOICE' STO 1. '\<-DONE' STO
+      END
+      IF \<-CHOICE "GPGGA," ==
+      THEN POSIT
+      END
+      IF \<-CHOICE "GPRMC," ==
+      THEN TRACK
+      END
+      IF \<-CHOICE "GPGSA," ==
+      THEN ACTIV
+      END
+      IF \<-CHOICE "GPGSV," ==
+      THEN VISI
+      END
+      IF \<-CHOICE "LOGGER" ==
+      THEN LOGGR
+      END
+      IF \<-CHOICE "HOWFAR" ==
+      THEN HOWFAR 1. '\<-DONE' STO
+      END
+      IF \<-CHOICE "IQUIT," ==
+      THEN 1. '\<-DONE' STO
+      END
+      IF \<-CHOICE "XXXXX," ==
+      THEN 1. '\<-DONE' STO
+      END
+    UNTIL \<-DONE 1 ==
+    END
+  \>> -78. CF CLOSEIO
+\>>

@@ -1,0 +1,10 @@
+%%HP: T(3)A(R)F(.);
+\<<
+  IFERR
+    DO CLOSEIO OPENIO 1.2 WAIT GSA
+    UNTIL 1. ==
+    END "Raw GSA: " + 0. '\<-DONE' STO
+  THEN "Could not read GSA sentence. Try again" MSGBOX
+  ELSE CLOSEIO
+  END
+\>>

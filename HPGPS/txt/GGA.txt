@@ -1,0 +1,2 @@
+%%HP: T(3)A(R)F(.);
+External 1. External External "$" External External 6. External External External "GPGGA," External External 76. External External External 1. External 0.

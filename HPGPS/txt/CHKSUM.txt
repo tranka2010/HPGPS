@@ -1,0 +1,15 @@
+%%HP: T(3)A(R)F(.);
+\<< '\<-STRING' STO \<-STRING "*" POS DUP
+  IF 0 \=/
+  THEN '\<-STAR' STO \<-STRING 1 \<-STAR 1 - SUB \<-STRING \<-STAR 1 + DUP 1 + SUB "#" SWAP + "h" + STR\-> B\->R '\<-CKS' STO 1 \<-STAR 1 -
+    FOR idx \<-STRING idx idx SUB
+    NEXT 1 \<-STAR 2 -
+    FOR idx XOR
+    NEXT NUM
+    IF \<-CKS ==
+    THEN 1.
+    ELSE 0.
+    END
+  ELSE 0.
+  END
+\>>

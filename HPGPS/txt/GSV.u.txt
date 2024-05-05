@@ -1,0 +1,19 @@
+%%HP: T(3)A(R)F(.);
+"!NO CODE
+!RPL
+::
+BEGIN %1 DOSRECV DROP \"$\" EQUAL
+UNTIL
+%6 DOSRECV DROP DUP \"GPGSV,\" EQUAL
+ITE
+::
+%76 DOSRECV DROP
+&$
+%1
+;
+::
+DROP
+0
+;
+;
+@"

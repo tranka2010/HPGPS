@@ -1,0 +1,3 @@
+%%HP: T(3)A(R)F(.);
+\<< "Choose destination" { { "North Pole" "NPOL" } { "South Pole" "SPOL" } { "NY" "NYNY" } { "Boston" "BSTN" } { "L.A." "LALA" } { "Mexico City" "MEXC" } { "Wash. DC" "WADC" } { "Chicago" "WADC" } { "Miami" "MIAM" } { "San Juan" "SJPR" } } 1 CHOOSE
+\>>

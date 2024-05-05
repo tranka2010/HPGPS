@@ -1,0 +1,38 @@
+%%HP: T(3)A(R)F(.);
+\<<
+  IFERR
+    DO
+      DO CLOSEIO OPENIO 1. WAIT GGA
+        IF 1. ==
+        THEN CHKSUM
+        ELSE 0.
+        END
+      UNTIL 1. ==
+      END 10 CHR +
+      DO CLOSEIO OPENIO 1. WAIT RMC
+        IF 1. ==
+        THEN CHKSUM
+        ELSE 0.
+        END
+      UNTIL 1. ==
+      END 10 CHR +
+      DO CLOSEIO OPENIO 1. WAIT GSA
+        IF 1. ==
+        THEN CHKSUM
+        ELSE 0.
+        END
+      UNTIL 1. ==
+      END 10 CHR + 5 WAIT
+      IF DEPTH 50 >
+      THEN 1 49
+        START +
+        NEXT ":3:" "LG" + TIME 100 * IP \->STR + DUP "." POS 1 - 1 SWAP SUB STR\-> STO CLEAR
+      END
+    UNTIL 0
+    END
+  THEN DEPTH 1 - 1 SWAP
+    START \->STR +
+    NEXT ":3:" "LG" + TIME 100 * IP \->STR + DUP "." POS 1 - 1 SWAP SUB STR\-> STO 1
+  ELSE 1
+  END
+\>>

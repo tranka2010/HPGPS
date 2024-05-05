@@ -1,0 +1,10 @@
+%%HP: T(3)A(R)F(.);
+\<<
+  IFERR
+    DO CLOSEIO OPENIO 1.2 WAIT GSV
+    UNTIL 1. ==
+    END "Raw GSV: " + 0. '\<-DONE' STO
+  THEN "Could not read GSV sentence. Try again" MSGBOX
+  ELSE CLOSEIO
+  END
+\>>
